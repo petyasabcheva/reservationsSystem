@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('navbar') %>
+        <div class="container mt-5">
+            <h1 class="mb-4">Make a Reservation</h1>
+            <% if (errorMessage && errorMessage.length> 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+            <form action="/reservations/new" method="POST">
+                <div class="mb-3">
+                    <label for="resName" class="form-label">Reservation Name:</label>
+                    <input type="text" class="form-control" id="resName" name="resName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Time:</label>
+                    <input type="time" class="form-control" id="time" name="time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="numberOfPeople" class="form-label">Number of People:</label>
+                    <input type="number" class="form-control" id="numberOfPeople" name="numberOfPeople" required>
+                </div>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Notes:</label>
+                    <textarea class="form-control" id="notes" name="notes"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="smoking" name="smoking">
+                    <label class="form-check-label" for="smoking">Smoking Area</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="children" name="children">
+                    <label class="form-check-label" for="children">Suitable for Children</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Reservation</button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
